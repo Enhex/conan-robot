@@ -46,5 +46,4 @@ class RobotConan(ConanFile):
         self.copy("*.a", dst="lib", keep_path=False)
 
     def package_info(self):
-        self.cpp_info.libs = ["robot"]
-
+        self.cpp_info.libs = ["Robot", "X11", "Xtst", "Xinerama"]
