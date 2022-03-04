@@ -14,7 +14,7 @@ def run_premake(self):
 		premake_command = "premake5 vs%s" % _visuals.get(str(self.settings.compiler.version), "UnknownVersion %s" % str(self.settings.compiler.version))
 		self.run(premake_command)
 	else:
-		self.run("premake5 gmake")
+		self.run("premake5 gmake2")
 
 class RobotConan(ConanFile):
     name = "robot"
@@ -46,4 +46,5 @@ class RobotConan(ConanFile):
         self.copy("*.a", dst="lib", keep_path=False)
 
     def package_info(self):
-        self.cpp_info.libs = ["Robot", "X11", "Xtst", "Xinerama"]
+        self.cpp_info.libs = ["Robot"]
+        self.cpp_info.system_libs = ["X11", "Xtst", "Xinerama"]
